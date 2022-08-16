@@ -1,4 +1,3 @@
-import {Breadcrumb} from 'antd'
 import {useLocation, Link} from 'react-router-dom'
  const Breadcrumbs = () => {
     const location = useLocation();
@@ -8,26 +7,24 @@ import {useLocation, Link} from 'react-router-dom'
         const capatilize = (s) => s.charAt(0).toUpperCase() + s.slice(1);
         return (
           <div>
-            <Breadcrumb>
+            <ul className='breadCrubs'>
               {pathnames.length > 0 ? (
-                <Breadcrumb.Item>
-                  <Link to="/">Home</Link>
-                </Breadcrumb.Item>
+                  <li><Link to="/">Home</Link></li>
               ) : (
-                <Breadcrumb.Item>Home</Breadcrumb.Item>
+                <li>Home</li>
               )}
               {pathnames.map((name, index) => {
                 const routeTo = `/${pathnames.slice(0, index + 1).join("/")}`;
                 const isLast = index === pathnames.length - 1;
                 return isLast ? (
-                  <Breadcrumb.Item>{capatilize(name)}</Breadcrumb.Item>
+                  <li>{capatilize(name)}</li>
                 ) : (
-                  <Breadcrumb.Item>
+                  <li>
                     <Link to={`${routeTo}`}>{capatilize(name)}</Link>
-                  </Breadcrumb.Item>
+                  </li>
                 );
               })}
-            </Breadcrumb>
+            </ul>
           </div>
         );
       };

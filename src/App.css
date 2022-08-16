@@ -12,7 +12,11 @@ code {
     monospace;
 }
 
-
+ul{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -41,6 +45,34 @@ code {
     box-sizing: border-box;
     margin-bottom: 20px;
     border-radius: 0;
+}
+.breadCrubs {
+  display: flex;
+  padding-bottom: 25px;
+}
+.sidebar{
+  box-shadow: 4px 0px 10px rgba(0,0,0,.15);
+  background-color: #c9c7c726;
+  padding: 20px 35px;
+  height: 100vh;
+}
+.sidebar ul li a{
+text-decoration: none;
+font-size: 16px;
+margin: 15px 0;
+color: #000;
+display: block;
+text-transform: capitalize;
+}
+.sidebar ul li a.active{color: blue;}
+.breadCrubs li a{position: relative; padding-right: 20px;}
+.breadCrubs li a:before{
+  position: absolute;
+  content: '/';
+  right: 7px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #000;
 }
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

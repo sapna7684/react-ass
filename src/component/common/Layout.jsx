@@ -8,7 +8,9 @@ const BoxWrapper = styled.div`
 display:grid;
 grid-template-columns: 180px 2fr 
 `
-
+const LeftWrapper = styled.div`
+padding:30px 15px;
+`
 export const Layout = () => {
   const location = useLocation();
   return (
@@ -16,10 +18,10 @@ export const Layout = () => {
     {location.pathname !== '/' ? (
     <BoxWrapper>
         <Sidebar/>
-        <div>
+        <LeftWrapper>
         <Breadcrumbs/>
         <Outlet/>
-        </div>
+        </LeftWrapper>
     </BoxWrapper>
     ) : <Outlet/>}
     </>
